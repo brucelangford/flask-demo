@@ -1,5 +1,7 @@
 # Flask on Heroku
 
+(This version is implemented by Bruce Langford)
+
 This project is intended to help you tie together some important concepts and
 technologies from the 12-day course, including Git, Flask, JSON, Pandas,
 Requests, Heroku, and Bokeh for visualization.
