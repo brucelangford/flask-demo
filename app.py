@@ -8,6 +8,8 @@ import pandas as pd
 app = Flask(__name__)
 
 app.static_folder = 'static'
+app.config.from_object(__name__)
+
 
 @app.route('/graph')
 def plot_ticker(stock='AAPL',year=2017,month=12):
