@@ -3,16 +3,26 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Skeleton application demoing Heroku and Flask integration.">
-    <meta name="author" content="@gotoariel">
+    <meta name="description" content="Simple heroku/flask/bokeh demo.">
+    <meta name="author" content="Bruce Langford">
     <!-- <link rel="icon" href="favicon.ico"> -->
 
-    <title>Wilkommen, bienvenue, and welcome to Heroku!</title>
-
+    <title>Bruce Langford's Stock Ticker</title>
+    <link ... href="{{ url_for('static', filename='style.css') }}" type="text/css"/>
+    <!-- <link href="style.css" rel="stylesheet" type="text/css"> -->
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!--     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
   </head>
   <body>
+    <header>
+      <div class="row">
+        <ul class="main-nav">
+          <li class="active"><a href=""> HOME </a></li>
+          <li><a href=""> TICKER </a></li>
+          <li><a href="https://github.com/brucelangford/flask-demo" target="_blank"> GITHUB </a></li>
+      </div>
+
+<!--     </header>
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-left">
@@ -27,7 +37,7 @@
         </div>
       </div>
     </div>
-    <!-- Bootstrap core JavaScript
+ -->    <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
