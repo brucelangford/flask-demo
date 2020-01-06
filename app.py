@@ -49,6 +49,10 @@ def plot_ticker(stock='AAPL',year=2017,month=12):
 				return raw_data.json()['quandl_error']
 			except:
 				print('no quandl_error available')
+				try:
+					return raw_data.json()['error']
+				except:
+					print('no error available')
 
 
 
