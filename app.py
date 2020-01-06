@@ -41,6 +41,10 @@ def plot_ticker(stock='AAPL',year=2017,month=12):
 			df = pd.DataFrame(data=raw_data.json()['data'], columns=raw_data.json()['column_names'])
 		except:
 			print(raw_data.json().keys())
+			try:
+				print(raw_data.json()['quandl_error'])
+			except:
+				print('no quandl_error available')
 
 
 
