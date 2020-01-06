@@ -11,7 +11,7 @@ app.static_folder = 'static'
 app.config.from_object(__name__)
 app.vars={'ticker':'AAPL','features':['close']}
 
-@app.route('/graph', methods=['GET','POST'])
+@app.route('/graph', methods=['POST'])
 def plot_ticker(stock='AAPL',year=2017,month=12):
 	
 	if request.method=='POST':
