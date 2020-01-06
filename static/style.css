@@ -12,7 +12,7 @@ header
 .row
 {
 	/*background-color: black;*/
-	background-image: linear-gradient(to right,black, black,white);
+	/*background-image: linear-gradient(to right,black, black,white);*/
 }
 
 .main-nav
@@ -51,4 +51,26 @@ header
 	color: red;
 	padding: 5px 19px;
 	border: 1px solid blue;
+}
+
+.container
+{
+	max-width:100%
+}
+
+.row2
+{
+	color: black;
+	float: left;
+	margin-top: 30px;
+	margin-right:-15px;
+	margin-left: 30px;
+}
+
+.page
+{
+	margin-top: 30px;
+	margin-bottom: 20px;
+	margin-right: 20px;
+	margin-left: 20px;
 }
