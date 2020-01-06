@@ -37,9 +37,10 @@ def plot_ticker(stock='AAPL',year=2017,month=12):
 		session.mount('http://', requests.adapters.HTTPAdapter(max_retries=3))
 		raw_data = session.get(api_url)
 
-		
-		df = pd.DataFrame(data=raw_data.json()['data'], columns=raw_data.json()['column_names'])
-
+		if raw_data.json()['data']:
+			df = pd.DataFrame(data=raw_data.json()['data'], columns=raw_data.json()['column_names'])
+		else:
+			print(raw_data.json().keys())
 
 
 
