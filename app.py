@@ -31,7 +31,11 @@ def plot_ticker(stock='AAPL',year=2017,month=12):
 		    month2=month+1
 		    year2=year
 		# api_url = 'https://www.quandl.com/api/v1/datasets/WIKI/%s.json' % stock
-		api_url = 'https://www.quandl.com/api/v1/datasets/WIKI/%s.json?date.gte=%d-%02d-01&date.lt=%d-%02d-01' % (stock,year,month,year2,month2)
+		if request.form.get('api_key'):
+			api_key = '&api_key=' + request.form.get('api_key')
+		else:
+			api_key = ''
+		api_url = 'https://www.quandl.com/api/v1/datasets/WIKI/%s.json?date.gte=%d-%02d-01&date.lt=%d-%02d-01%s' % (stock,year,month,year2,month2,api_key)
 		session = requests.Session()
 
 		session.mount('http://', requests.adapters.HTTPAdapter(max_retries=3))
