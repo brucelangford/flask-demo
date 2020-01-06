@@ -42,12 +42,10 @@ def plot_ticker(stock='AAPL',year=2017,month=12):
 	# api_url = 'https://www.quandl.com/api/v1/datasets/WIKI/%s.json' % stock
 	api_url = 'https://www.quandl.com/api/v1/datasets/WIKI/%s.json?date.gte=%d-%02d-01&date.lt=%d-%02d-01' % (stock,year,month,year2,month2)
 	session = requests.Session()
-	try:
-		session.mount('http://', requests.adapters.HTTPAdapter(max_retries=3))
-		raw_data = session.get(api_url)
-	except:
-		print('failed')
-		return None
+
+	session.mount('http://', requests.adapters.HTTPAdapter(max_retries=3))
+	raw_data = session.get(api_url)
+
 	
 	df = pd.DataFrame(data=raw_data.json()['data'], columns=raw_data.json()['column_names'])
 
