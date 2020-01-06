@@ -4,12 +4,17 @@ from bokeh.plotting import figure
 from bokeh.embed import components
 import pandas as pd
 
+def read_apikey():
+	with open('apikey.ak','r') as f:
+		return f.readline().split()[0]
 
 app = Flask(__name__)
 
 app.static_folder = 'static'
 app.config.from_object(__name__)
-app.vars={'ticker':'AAPL','features':['close']}
+app.vars={'ticker':'AAPL','features':['close'],'api_key':read_apikey()}
+
+
 
 @app.route('/graph', methods=['POST'])
 def plot_ticker(stock='AAPL',year=2017,month=12):
@@ -31,10 +36,11 @@ def plot_ticker(stock='AAPL',year=2017,month=12):
 		    month2=month+1
 		    year2=year
 		# api_url = 'https://www.quandl.com/api/v1/datasets/WIKI/%s.json' % stock
-		if request.form.get('api_key'):
-			api_key = '&api_key=' + request.form.get('api_key')
-		else:
-			api_key = ''
+		# if request.form.get('api_key'):
+		# 	api_key = '&api_key=' + request.form.get('api_key')
+		# else:
+		# 	api_key = ''
+		api_key = '&api_key=' + app.vars['api_key'] 
 		api_url = 'https://www.quandl.com/api/v1/datasets/WIKI/%s.json?date.gte=%d-%02d-01&date.lt=%d-%02d-01%s' % (stock,year,month,year2,month2,api_key)
 		session = requests.Session()
 
